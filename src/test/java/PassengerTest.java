@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,11 +15,13 @@ public class PassengerTest {
     private ArrayList<Bag> bags;
     private Flight flightEZY482;
     private Plane plane;
+    private LocalDateTime timeEZY482;
 
 
     @Before
     public void before(){
-        flightEZY482 = new Flight( "EZY482", "BFS", "EDI", "11:45GMT");
+        timeEZY482 = LocalDateTime.of(2021, 02, 15, 11, 45, 00);
+        flightEZY482 = new Flight( "EZY482", "BFS", "EDI", timeEZY482);
         plane = new Plane(PlaneModel.A320, "N475UA");
         flightEZY482.assignPlane(plane);
         bag = new Bag(20);

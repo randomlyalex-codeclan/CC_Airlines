@@ -16,7 +16,7 @@ public class Pilot extends AirCrew{
         takeOff = "This is your captain "
                 + getName()
                 + " speaking, we will be departing at "
-                + flight.getDepartureTime()
+                + flight.getDepartureTimeString()
                 + " to "
                 + flight.getDestinationAirport()
                 + " thank you for flying CC Airlines";

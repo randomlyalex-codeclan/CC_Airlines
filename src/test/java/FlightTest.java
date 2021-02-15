@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -28,13 +29,16 @@ public class FlightTest {
     private Bag bag3;
     private Bag bag4;
     private Bag bag5;
-
+    private LocalDateTime timeBAW1442;
+    private LocalDateTime timeEZY482;
 
 
     @Before
     public void setUp() {
-        flightBAW1442 = new Flight("BAW1442", "EDI", "LHR", "09:46GMT");
-        flightEZY482 = new Flight( "EZY482", "BFS", "EDI", "11:45GMT");  // Used to check passengers and baggage cals
+        timeBAW1442 = LocalDateTime.of(2021, 02, 15, 9, 05, 00);
+        timeEZY482 = LocalDateTime.of(2021, 02, 15, 11, 45, 00);
+        flightBAW1442 = new Flight("BAW1442", "EDI", "LHR", timeBAW1442);
+        flightEZY482 = new Flight( "EZY482", "BFS", "EDI", timeEZY482);  // Used to check passengers and baggage cals
         plane = new Plane (PlaneModel.A320, "A21N");
         smallPlane = new Plane(PlaneModel.TEST_MODEL, "TinyTest"); // Used to check passenger and baggage calcs
         captain = new Pilot ("Joe", Rank.CAPTAIN, "ABC123" );

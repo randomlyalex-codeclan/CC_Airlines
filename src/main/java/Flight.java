@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Flight {
@@ -8,10 +10,10 @@ public class Flight {
     private String flightNumber;
     private String destinationAirport;
     private String departureAirport;
-    private String departureTime;
+    private LocalDateTime departureTime;
     private static int ASSUMED_PASSENGER_WEIGHT = 90;
 
-    public Flight(String flightNumber, String destinationAirport, String departureAirport, String departureTime){
+    public Flight(String flightNumber, String destinationAirport, String departureAirport, LocalDateTime departureTime){
         this.flightNumber = flightNumber;
         this.destinationAirport = destinationAirport;
         this.departureAirport = departureAirport;
@@ -151,7 +153,13 @@ public class Flight {
         return this.departureAirport;
     }
 
-    public String getDepartureTime() {
+    public String getDepartureTimeString() {
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm");
+        String stringFormatedDate = this.departureTime.format(myFormatObj);
+        return stringFormatedDate;
+    }
+
+    public LocalDateTime getDepartureTime() {
         return this.departureTime;
     }
 
